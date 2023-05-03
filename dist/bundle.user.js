@@ -324,8 +324,8 @@ SOFTWARE.
                         .split("/following")[0];
                     document.getElementById("get-following-start-btn").style.display =
                         "none";
-                    document.getElementById("get-bsky-handle").style.display = "none";
-                    document.getElementById("get-bsky-pw").style.display = "none";
+                    // document.getElementById("get-bsky-handle").style.display = "none";
+                    // document.getElementById("get-bsky-pw").style.display = "none";
                     // const bsky_handle = (document.getElementById("get-bsky-handle") as HTMLInputElement).value
                     // const pw = (document.getElementById("get-bsky-pw") as HTMLInputElement).value
                     getFollowing(handle);
