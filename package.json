@@ -1,6 +1,6 @@
 {
     "name": "get-bird-follows",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Crawl follows from your Birdapp profile.",
     "keywords": [
         "userscript",
@@ -57,5 +57,8 @@
     },
     "config": {
         "port": "8124"
+    },
+    "dependencies": {
+        "@atproto/api": "^0.2.11"
     }
 }

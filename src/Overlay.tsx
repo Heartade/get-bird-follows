@@ -1,5 +1,5 @@
 import * as React from "react";
-import { getStatus, start } from "./getFollows";
+import { getFollowing, getStatus, start } from "./getFollows";
 
 const ButtonStyle: React.CSSProperties = {
   backgroundColor: "blue",
@@ -25,9 +25,19 @@ function Button({ enabled }: { enabled: boolean }): JSX.Element {
     <button
       style={ButtonStyle}
       disabled={!enabled}
+      id="get-following-start-btn"
       onClick={() => {
         if (enabled) {
-          start();
+          const handle = location.href
+            .split("twitter.com/")[1]
+            .split("/following")[0];
+          document.getElementById("get-following-start-btn").style.display =
+            "none";
+          document.getElementById("get-bsky-handle").style.display = "none";
+          document.getElementById("get-bsky-pw").style.display = "none";
+          const bsky_handle = (document.getElementById("get-bsky-handle") as HTMLInputElement).value
+          const pw = (document.getElementById("get-bsky-pw") as HTMLInputElement).value
+          getFollowing(handle);
         }
       }}
     >
@@ -40,6 +50,7 @@ export function Overlay(): JSX.Element {
   const status = getStatus().status;
   return (
     <div
+      id="get-following-status-start"
       style={{
         zIndex: 99999,
         position: "fixed",
@@ -50,12 +61,17 @@ export function Overlay(): JSX.Element {
         gap: "4px",
       }}
     >
-      {status === "NOT_RUNNING" ? (
-        <Button enabled={true} />
+      {status === "NOT_RUNNING" && location.href.includes("/following") ? (
+        <>
+          <input type="text" id="get-bsky-handle" placeholder="your.bsky.handle" />
+          <input type="password" id="get-bsky-pw" placeholder="********" />
+          <Button enabled={true} />
+          <div id="get-following-status" style={IndicatorStyle}>
+            <span id="get-following-status-value"></span>
+          </div>
+        </>
       ) : (
-        <div id="get-following-status" style={IndicatorStyle}>
-          <span id="get-following-status-value"></span>
-        </div>
+        <></>
       )}
     </div>
   );

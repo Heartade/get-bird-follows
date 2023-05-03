@@ -5,7 +5,7 @@
 // @require     https://unpkg.com/react@18/umd/react.development.js
 // @require     https://unpkg.com/react-dom@18/umd/react-dom.development.js
 // @match       https://twitter.com/*
-// @version     1.0.0
+// @version     1.0.1
 // @homepage    https://github.com/heartade/get-bird-follows
 // @author      Daniel S. Park
 // @license     MIT

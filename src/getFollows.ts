@@ -1,3 +1,5 @@
+import { listBskyUsers } from "./listBskyUsers";
+
 type Status =
   | "NOT_RUNNING"
   | "GET_HANDLE"
@@ -86,7 +88,7 @@ export function onNavigate() {
         break;
       case "GET_FOLLOWING":
         if (!didStartGetFollowing) {
-          getFollowing(statusAndData.handle, statusAndData.followingCount);
+          getFollowing(statusAndData.handle);
           didStartGetFollowing = true;
         }
         break;
@@ -96,7 +98,7 @@ export function onNavigate() {
   const interval = setInterval(callback, 1000);
 }
 
-export function getFollowing(handle: string, count: number) {
+export function getFollowing(handle: string, bsky_handle: string = "", bsky_pw: string = "") {
   updateStatus(`Getting your follows...`);
   // Scroll to bottom until first XHR request is caught
   const interval = setInterval(() => {
@@ -131,9 +133,9 @@ export function getFollowing(handle: string, count: number) {
             });
           all_following_entries.push(...entries);
           updateStatus(
-            `Getting your follows... ${all_following_entries.length}/${count}`
+            `Getting your follows... ${all_following_entries.length}`
           );
-          if (entries.length < 100 || all_following_entries.length >= count) {
+          if (entries.length < 100) {
             updateStatus(
               `Done! Some users may not show up.`
             );
@@ -145,6 +147,7 @@ export function getFollowing(handle: string, count: number) {
                 ];
               })
               .filter((e: any[]) => e);
+            listBskyUsers(handle, all_users, bsky_handle, bsky_pw);
             const json = JSON.stringify(all_users);
             const blob = new Blob([json], { type: "application/json" });
             const url = URL.createObjectURL(blob);
