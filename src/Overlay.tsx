@@ -35,8 +35,8 @@ function Button({ enabled }: { enabled: boolean }): JSX.Element {
             "none";
           document.getElementById("get-bsky-handle").style.display = "none";
           document.getElementById("get-bsky-pw").style.display = "none";
-          const bsky_handle = (document.getElementById("get-bsky-handle") as HTMLInputElement).value
-          const pw = (document.getElementById("get-bsky-pw") as HTMLInputElement).value
+          // const bsky_handle = (document.getElementById("get-bsky-handle") as HTMLInputElement).value
+          // const pw = (document.getElementById("get-bsky-pw") as HTMLInputElement).value
           getFollowing(handle);
         }
       }}
@@ -63,8 +63,8 @@ export function Overlay(): JSX.Element {
     >
       {status === "NOT_RUNNING" && location.href.includes("/following") ? (
         <>
-          <input type="text" id="get-bsky-handle" placeholder="your.bsky.handle" />
-          <input type="password" id="get-bsky-pw" placeholder="********" />
+          {/* <input type="text" id="get-bsky-handle" placeholder="your.bsky.handle" />
+          <input type="password" id="get-bsky-pw" placeholder="********" /> */}
           <Button enabled={true} />
           <div id="get-following-status" style={IndicatorStyle}>
             <span id="get-following-status-value"></span>
