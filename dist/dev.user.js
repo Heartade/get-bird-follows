@@ -1,13 +1,13 @@
 // ==UserScript==
-// @name        rollup-userscript-template [dev]
-// @description Bundle typescript, react and JSX/TSX script files into a single userscript file with rollup
-// @namespace   github.com/cvzi
+// @name        get-bird-follows [dev]
+// @description Crawl follows from your Birdapp profile.
+// @namespace   github.com/heartade
 // @require     https://unpkg.com/react@18/umd/react.development.js
 // @require     https://unpkg.com/react-dom@18/umd/react-dom.development.js
-// @match       https://github.com/*
-// @version     1.3.0
-// @homepage    https://github.com/cvzi/rollup-userscript-template
-// @author      cuzi
+// @match       https://twitter.com/*
+// @version     1.0.0
+// @homepage    https://github.com/heartade/get-bird-follows
+// @author      Daniel S. Park
 // @license     MIT
 // @grant       GM.getValue
 // @grant       GM.xmlHttpRequest
@@ -70,4 +70,4 @@
       GM.setValue('scriptlastsource3948218', s)
     }
   })
-})()
+})()

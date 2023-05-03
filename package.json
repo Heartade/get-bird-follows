@@ -1,7 +1,7 @@
 {
-    "name": "rollup-userscript-template",
-    "version": "1.3.0",
-    "description": "Bundle typescript, react and JSX/TSX script files into a single userscript file with rollup",
+    "name": "get-bird-follows",
+    "version": "1.0.0",
+    "description": "Crawl follows from your Birdapp profile.",
     "keywords": [
         "userscript",
         "greasemonkey",
@@ -10,17 +10,16 @@
         "typescript",
         "react"
     ],
-    "homepage": "https://github.com/cvzi/rollup-userscript-template",
-    "funding": "https://github.com/cvzi/rollup-userscript-template/funding_links?fragment=1",
+    "homepage": "https://github.com/heartade/get-bird-follows",
     "repository": {
         "type": "git",
-        "url": "github:cvzi/rollup-userscript-template"
+        "url": "github:heartade/get-bird-follows"
     },
     "bugs": {
-        "url": "https://github.com/cvzi/rollup-userscript-template/issues",
-        "email": "cuzi@openmail.cc"
+        "url": "https://github.com/heartade/get-bird-follows/issues",
+        "email": "soohan@heartade.dev"
     },
-    "author": "cuzi",
+    "author": "Daniel S. Park",
     "license": "MIT",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
@@ -31,6 +30,7 @@
         "testserve": "node server.js --test",
         "build:release": "npx rollup --config rollup.config.mjs --sourcemap 0 --file dist/release-$npm_package_version.user.js",
         "build:release:win32": "npx rollup --config rollup.config.mjs --sourcemap 0 --file dist\\release-%npm_package_version%.user.js",
+        "build:release:nover": "npx rollup --config rollup.config.mjs --sourcemap 0 --file dist/release.user.js",
         "version": "npm run build:release && git add dist/release-$npm_package_version.user.js",
         "prepublishOnly": "npm run build:release && git add dist/release-$npm_package_version.user.js"
     },

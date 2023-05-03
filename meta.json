@@ -1,12 +1,12 @@
 {
-    "namespace": "github.com/cvzi",
-    "copyright": "2020, cuzi (https://openuserjs.org/users/cuzi)",
+    "namespace": "github.com/heartade",
+    "copyright": "2023, heartade (https://github.com/heartade) based on 2020, cuzi (https://openuserjs.org/users/cuzi)",
     "require": [
         "https://unpkg.com/react@18/umd/react.development.js",
         "https://unpkg.com/react-dom@18/umd/react-dom.development.js"
     ],
     "match": [
-        "https://github.com/*"
+        "https://twitter.com/*"
     ],
     "grant": [
         "GM.getValue"

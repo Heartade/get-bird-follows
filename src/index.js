@@ -1,17 +1,11 @@
-import * as ReactDOM from 'react-dom'
+import * as ReactDOM from "react-dom";
 
-import helloWorld from './examplePlain.js'
-import getSomeValueFromGM from './exampleTypedGM.ts'
-import SomeList from './exampleReact.tsx'
+import { Overlay} from "./Overlay.js";
+import { onNavigate } from "./getFollows.ts";
 
-ReactDOM.render(
-  <SomeList name={helloWorld} />,
-  document.body
-)
+const element = document.createElement("div");
+element.id="get-follows-overlay";
+document.body.appendChild(element);
+ReactDOM.render(<Overlay />, element);
 
-getSomeValueFromGM().then(function (s) {
-  ReactDOM.render(
-    <SomeList name={s} />,
-    document.body
-  )
-})
+onNavigate();

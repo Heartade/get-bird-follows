@@ -248,4 +248,3 @@ SOFTWARE.
     onNavigate();
 
 })(ReactDOM, React);
-//# sourceMappingURL=bundle.user.js.map
